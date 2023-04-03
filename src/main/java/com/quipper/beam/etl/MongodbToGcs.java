@@ -39,7 +39,7 @@ public class MongodbToGcs {
             .withUri("mongodb://"+options.getSourceDbUser()+":"+options.getSourceDbPassword()+"@"+options.getSourceDbHost()+":"+options.getSourceDbPort()+"/?replicaSet=rs0&readPreference=secondary")
             .withDatabase(options.getSourceDbName())
             .withCollection(options.getSourceCollection())
-            .withQueryFn(null)
+            
     
         ).apply(
             "convert bson.document to string",ParDo.of(new DoFn<Document,String>() {
